@@ -287,10 +287,10 @@ func migrate(tree *postgre.PostgresMerkleTree, secretKey string, contractSource 
 		context, node := aeternity.NewContextFromURL(envConfig.AENodeUrl, account.Address, false)
 
 		var amount *big.Int = big.NewInt(0)            // aeternity.Config.Client.Contracts.Amount
-		var gasPrice *big.Int = big.NewInt(1000000000) // aeternity.Config.Client.Contracts.GasPrice
+		var gasPrice *big.Int = big.NewInt(1e9) // aeternity.Config.Client.Contracts.GasPrice
 		// var gas big.Int = aeternity.Config.Client.Contracts.Gas // utils.NewIntFromUint64(1e6) //
-		var gasLimit *big.Int = utils.NewIntFromUint64(1e6) // aeternity.Config.Client.Contracts.Gas //
-		var fee *big.Int = utils.NewIntFromUint64(665480000000000)
+		var gasLimit *big.Int = utils.NewIntFromUint64(1e9) // aeternity.Config.Client.Contracts.Gas //
+		var fee *big.Int = utils.NewIntFromUint64(2e14)
 
 		if customNonce == 0 {
 			ttl, nonce, err := context.GetTTLNonce(context.Address, aeternity.Config.Client.TTL) // ttl, nonce, err :=
